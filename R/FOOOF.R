@@ -95,18 +95,26 @@
 #'
 #' @export
 
-FOOOF <- function(peak_width_limits = list(0.5, 12.0), max_n_peaks = inf, min_peak_height = 0.0, peak_threshold = 2.0, aperiodic_mode = "fixed", verbose = TRUE) {
+FOOOF <- function(peak_width_limits = list(0.5, 12.0), max_n_peaks = Inf, min_peak_height = 0.0, peak_threshold = 2.0, aperiodic_mode = "fixed", verbose = TRUE) {
 
     if (!require(reticulate))
-        stop("`reticulate` is required to use the FOOOF function")
+      stop("`reticulate` is required to use the FOOOF function")
 
-      py$fooof$FOOOF(
-        peak_width_limits = peak_width_limits,
-        max_n_peaks = max_n_peaks,
-        min_peak_height = min_peak_height,
-        peak_threshold = peak_threshold,
-        aperiodic_mode = aperiodic_mode,
-        verbose = verbose
+    import("fooof")
+    import("numpy", "np")
+    import("matplotlib", "plt")
+    import("pandas", "pd")
+
+    fooof_obj <-
+    py$fooof$FOOOF(
+      peak_width_limits = peak_width_limits,
+      max_n_peaks = max_n_peaks,
+      min_peak_height = min_peak_height,
+      peak_threshold = peak_threshold,
+      aperiodic_mode = aperiodic_mode,
+      verbose = verbose
     )
+
+    return(py_to_r(fooof_obj))
 
 }

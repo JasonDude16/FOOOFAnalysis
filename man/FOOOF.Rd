@@ -6,7 +6,7 @@
 \usage{
 FOOOF(
   peak_width_limits = list(0.5, 12),
-  max_n_peaks = inf,
+  max_n_peaks = Inf,
   min_peak_height = 0,
   peak_threshold = 2,
   aperiodic_mode = "fixed",
