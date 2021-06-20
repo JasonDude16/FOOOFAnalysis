@@ -14,6 +14,8 @@ FOOOF_summaries <- function(data_list, append = NULL, img_path = NULL, data_path
     if (!require(reticulate))
         stop("`reticulate` is required to use the FOOOF_summaries function")
 
+    reticulate::py_run_file(system.file("FOOOF_summaries.py", package = "FOOOFAnalysis"))
+
     py$FOOOF_summaries(
         data_list = data_list,
         append = append,
