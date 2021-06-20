@@ -1,8 +1,8 @@
 #' Combine EEG model data
 #'
-#' This function is intended to be used after `RtoFOOOF()` and is fairly
-#' inflexible The output from `RtoFOOOF()` is a .csv file written to some data
-#' directory. If the `RtoFOOOF()` function was implemented a number times,
+#' This function is intended to be used after `FOOOF_summaries()` and is fairly
+#' inflexible The output from `FOOOF_summaries()` is a .csv file written to some data
+#' directory. If the `FOOOF_summaries()` function was implemented a number times,
 #' numerous .csv files will have been generated for each EEG condition, for
 #' example. This function appends (rbinds) those model data .csv files in a
 #' *single* directory. If the files are spread across directories, they will all
@@ -22,7 +22,7 @@
 #' @export
 #' @examples
 
-rbind_model_dir <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]") {
+apped_EEG <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]") {
 
     if(!require(stringi))
         stop("First install `stringi` package")

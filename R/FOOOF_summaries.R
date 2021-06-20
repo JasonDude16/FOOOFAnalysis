@@ -1,4 +1,4 @@
-#' Wrapper for FOOOF module in Python
+#' Summary function implementing FOOOF module in Python
 #'
 #'
 #' @param data_list data_list
@@ -9,12 +9,12 @@
 #' @export
 #' @example
 
-FOOOF_R <- function(data_list, append = NULL, img_path = NULL, data_path = NULL, freq_range = c(1L, 50L)) {
+FOOOF_summaries <- function(data_list, append = NULL, img_path = NULL, data_path = NULL, freq_range = c(1L, 50L)) {
 
     if (!require(reticulate))
-        stop("`reticulate` is required to use the FOOOF_R function")
+        stop("`reticulate` is required to use the FOOOF_summaries function")
 
-    py$FOOOF_R(
+    py$FOOOF_summaries(
         data_list = data_list,
         append = append,
         img_path = img_path,

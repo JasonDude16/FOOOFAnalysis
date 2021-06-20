@@ -1,10 +1,10 @@
 #' Tidy format EEG data
 #'
-#' This function is intended to be used in conjunction with `readEEG()`.
-#' In `readEEG()`, the output is not in tidy format.This function formats the
+#' This function is intended to be used in conjunction with `read_EEG()`.
+#' In `read_EEG()`, the output is not in tidy format.This function formats the
 #' data in a way that is in alignment with tidy principles; namely, where each
 #' row is an observation and each column is a variable.
-#' @param df EEG data sheet from `readEEG()`.
+#' @param df EEG data sheet from `read_EEG()`.
 #' @param to_rownames Assuming the data contain a column of electrode names,
 #' this column can be converted to rownames (recommended). Defaults to "channels".
 #' @param format Specifies the desired output, which is one of the following
@@ -14,7 +14,7 @@
 #' @export
 #' @examples
 
-tidyEEG <- function(df, to_rownames = "channels", format = "to_FOOOF") {
+tidy_EEG <- function(df, to_rownames = "channels", format = "to_FOOOF") {
 
     options = c("to_FOOOF", "avg_elec", "avg_freq")
     avg_elec = any(format == "avg_elec")

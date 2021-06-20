@@ -3,7 +3,7 @@ import fooof
 import pandas as pd
 import matplotlib.pyplot as plt
 
-def FOOOF_R (data_list, append=None, img_path=None, data_path=None, freq_range=[1,50]):
+def FOOOF_summaries (data_list, append=None, img_path=None, data_path=None, freq_range=[1,50]):
   
   df = []
   ID_list = list(data_list.keys())

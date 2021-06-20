@@ -10,7 +10,7 @@
 #' @export
 #' @examples
 
-readEEG <- function(file, skip = 2:length(sheets), verbose = TRUE) {
+read_EEG <- function(file, skip = 2:length(sheets), verbose = TRUE) {
 
     if (!require(readxl))
         stop("'readxl' needs to be installed")
