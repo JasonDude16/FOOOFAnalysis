@@ -33,10 +33,12 @@ append_FOOOF <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]"
         stop("Delete old file first")
 
     data <- lapply(files, function(x){
-        cond <- stringi::stri_extract(x, regex = conds_pattern)
-        df <- read.csv(paste(file_path, "/", x, sep = ""))
-        df$condition <- rep(cond, nrow(df))
-        return(df)
+        if (endsWith(x, ".csv")) {
+            cond <- stringi::stri_extract(x, regex = conds_pattern)
+            df <- read.csv(paste(file_path, "/", x, sep = ""))
+            df$condition <- rep(cond, nrow(df))
+            return(df)
+         }
     })
 
     all <- dplyr::arrange(.data = do.call(rbind, data), ID)
