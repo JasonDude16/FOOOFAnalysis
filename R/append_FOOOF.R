@@ -22,7 +22,7 @@
 #' @export
 #' @examples
 
-apped_EEG <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]") {
+append_FOOOF <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]") {
 
     if(!require(stringi))
         stop("First install `stringi` package")
@@ -36,7 +36,6 @@ apped_EEG <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]") {
         cond <- stringi::stri_extract(x, regex = conds_pattern)
         df <- read.csv(x)
         df$condition <- rep(cond, nrow(df))
-        df <- df[-1]
         return(df)
     })
 
