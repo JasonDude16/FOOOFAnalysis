@@ -12,7 +12,7 @@
 FOOOF_R <- function(data_list, append = NULL, img_path = NULL, data_path = NULL, freq_range = c(1L, 50L)) {
 
     if (!require(reticulate))
-        message("`reticulate` is required to use the FOOOF_R function")
+        stop("`reticulate` is required to use the FOOOF_R function")
 
     py$FOOOF_R(
         data_list = data_list,
