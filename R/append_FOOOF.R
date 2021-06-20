@@ -34,7 +34,7 @@ append_FOOOF <- function(file_path, output_name, conds_pattern = ".._[0-9][0-9]"
 
     data <- lapply(files, function(x){
         cond <- stringi::stri_extract(x, regex = conds_pattern)
-        df <- read.csv(x)
+        df <- read.csv(paste(file_path, "/", x, sep = ""))
         df$condition <- rep(cond, nrow(df))
         return(df)
     })
